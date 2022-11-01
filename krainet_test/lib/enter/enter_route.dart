@@ -8,22 +8,24 @@ class EnterRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(top: 210),
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              SvgPicture.asset(
-                'assets/images/logo.svg',
-                semanticsLabel: 'App Logo',
-                width: 250,
-                height: 70,
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              // const EnterForm()
-            ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 210, left: 40, right: 40),
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                SvgPicture.asset(
+                  'assets/images/logo.svg',
+                  semanticsLabel: 'App Logo',
+                  width: 250,
+                  height: 70,
+                ),
+                const SizedBox(
+                  height: 25,
+                ),
+                const EnterForm()
+              ],
+            ),
           ),
         ),
       ),
