@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'photo_listing/photo_listing_route.dart';
+import 'profile/profile_route.dart';
+
 class MainRoute extends StatefulWidget {
   const MainRoute({Key? key}) : super(key: key);
 
@@ -21,27 +24,10 @@ class MainRouteState extends State<MainRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Main page'),
-        backgroundColor: const Color(0xFF3CCB75),
-        foregroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 210, left: 40, right: 40),
-          child: Center(
-            child: Column(
-              children: const <Widget>[
-                SizedBox(
-                  height: 25,
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
+      body: const [
+        PhotoListingRoute(),
+        ProfileRoute(),
+      ][_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.white,
         backgroundColor: const Color(0xFF3CCB75),
