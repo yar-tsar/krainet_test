@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:krainet_test/models/main_page/profile/profile_view.dart';
 
 class ProfileRoute extends StatelessWidget {
   const ProfileRoute({Key? key}) : super(key: key);
@@ -15,9 +16,7 @@ class ProfileRoute extends StatelessWidget {
         child: Center(
           child: Column(
             children: const <Widget>[
-              SizedBox(
-                height: 25,
-              ),
+              ProfileView(),
             ],
           ),
         ),

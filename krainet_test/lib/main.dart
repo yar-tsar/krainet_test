@@ -3,7 +3,7 @@ import 'package:krainet_test/models/enter/enter_route.dart';
 import 'package:krainet_test/theme/custom_theme.dart';
 
 void main() {
-  runApp(PixelsApp());
+  runApp(const PixelsApp());
 }
 
 class PixelsApp extends StatelessWidget {

@@ -5,6 +5,7 @@ class PixelsTheme {
     return ThemeData(
         colorScheme: ColorScheme.fromSwatch().copyWith(
           primary: const Color(0xFF3CCB75),
+          secondary: const Color(0xFF3CCB75),
         ),
         appBarTheme: const AppBarTheme(
           centerTitle: true,

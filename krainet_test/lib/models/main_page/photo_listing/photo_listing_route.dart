@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:krainet_test/models/main_page/photo_listing/photo_listing_view.dart';
 
 class PhotoListingRoute extends StatelessWidget {
   const PhotoListingRoute({Key? key}) : super(key: key);
@@ -11,16 +12,19 @@ class PhotoListingRoute extends StatelessWidget {
         automaticallyImplyLeading: false,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 110, left: 40, right: 40),
+        padding: const EdgeInsets.only(left: 40, right: 40),
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: const <Widget>[
-              SizedBox(
-                height: 25,
-              ),
+              PhotoListingView(),
             ],
           ),
         ),
+      ),
+      floatingActionButton: const FloatingActionButton(
+        onPressed: null,
+        child: Icon(Icons.add_photo_alternate_sharp),
       ),
     );
   }
