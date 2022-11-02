@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:krainet_test/enter/enter_route.dart';
+import 'package:krainet_test/models/enter/enter_route.dart';
 
 void main() {
   runApp(PixelsApp());
@@ -10,10 +10,10 @@ class PixelsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pixels App',
-      home: const EnterRoute(),
+      home: EnterRoute(),
     );
   }
 }

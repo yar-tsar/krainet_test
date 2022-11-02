@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:krainet_test/enter/sign_up/sign_up_form.dart';
+import 'package:krainet_test/models/enter/sign_up/sign_up_form.dart';
 
 class SignUpRoute extends StatelessWidget {
   const SignUpRoute({Key? key}) : super(key: key);

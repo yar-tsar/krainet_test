@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:krainet_test/enter/sign_up/sign_up_route.dart';
+import 'package:krainet_test/models/main_page/main_route.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({Key? key}) : super(key: key);
@@ -182,13 +182,14 @@ class _SignUpFormState extends State<SignUpForm> {
               padding: EdgeInsets.zero,
               backgroundColor:
                   _isFormFilled ? const Color(0xFF3CCB75) : Colors.grey,
+              foregroundColor:
+                  _isFormFilled ? Colors.white : const Color(0xFFD9D9D9),
             ),
-            onPressed: null,
-            /*() => Navigator.push(
+            onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const SignUpRoute(),
-                )), */
+                  builder: (context) => const MainRoute(),
+                )),
             child: const Text('Sign Up'),
           ),
         ],
