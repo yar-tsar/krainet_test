@@ -14,9 +14,10 @@ class _SignUpFormState extends State<SignUpForm> {
   final _birthdayController = TextEditingController();
   final _emailController = TextEditingController();
   final _passController = TextEditingController();
-  final _checkPassController = TextEditingController();
+  final _confirmPassController = TextEditingController();
 
   bool _isPasswordObscured = true;
+  bool _isConfirmPasswordObscured = true;
   bool _isFormFilled = false;
 
   @override
@@ -25,7 +26,7 @@ class _SignUpFormState extends State<SignUpForm> {
     _birthdayController.dispose();
     _emailController.dispose();
     _passController.dispose();
-    _checkPassController.dispose();
+    _confirmPassController.dispose();
     super.dispose();
   }
 
@@ -60,12 +61,91 @@ class _SignUpFormState extends State<SignUpForm> {
               },
               onChanged: (value) => filled()),
           TextFormField(
-              controller: _passController,
+              controller: _birthdayController,
               decoration: const InputDecoration(
                   labelText: 'date of birth', helperText: ''),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your date of birth';
+                }
+              },
+              onChanged: (value) => filled()),
+          TextFormField(
+              controller: _emailController,
+              decoration:
+                  const InputDecoration(labelText: 'e-mail', helperText: ''),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter your e-mail';
+                }
+                String p =
+                    "[a-zA-Z0-9+._%-+]{1,256}@[a-zA-Z0-9][a-zA-Z0-9-]{0,64}(.[a-zA-Z0-9][a-zA-Z0-9-]{0,25})+";
+                RegExp regExp = RegExp(p);
+
+                if (regExp.hasMatch(value)) return null;
+
+                return 'Please enter correct e-mail';
+              },
+              onChanged: (value) => filled()),
+          TextFormField(
+              controller: _passController,
+              obscureText: _isPasswordObscured,
+              decoration: InputDecoration(
+                labelText: 'password',
+                helperText: '',
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      _isPasswordObscured = !_isPasswordObscured;
+                    });
+                  },
+                  icon: Icon(
+                    _isPasswordObscured
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter your password';
+                }
+                if (value.length > 5) return null;
+
+                return 'Password must include 6 symbols';
+              },
+              onChanged: (value) => filled()),
+          TextFormField(
+              controller: _confirmPassController,
+              obscureText: _isConfirmPasswordObscured,
+              decoration: InputDecoration(
+                labelText: 'confirm password',
+                helperText: '',
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      _isConfirmPasswordObscured = !_isConfirmPasswordObscured;
+                    });
+                  },
+                  icon: Icon(
+                    _isConfirmPasswordObscured
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please confirm your password';
+                }
+                if (_passController.value != _confirmPassController.value) {
+                  return 'Passwords must match';
+                }
+                if (value.length > 5) return null;
+                {
+                  return 'Password must include 6 symbols';
                 }
               },
               onChanged: (value) => filled()),
