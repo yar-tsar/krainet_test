@@ -63,7 +63,32 @@ class _SignUpFormState extends State<SignUpForm> {
           TextFormField(
               controller: _birthdayController,
               decoration: const InputDecoration(
-                  labelText: 'date of birth', helperText: ''),
+                labelText: 'date of birth',
+                helperText: '',
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    Icons.calendar_month_rounded,
+                    color: Colors.black,
+                  ),
+                  onPressed: null,
+                ),
+              ),
+              onTap: () async {
+                DateTime? pickedDate = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(1900),
+                    lastDate: DateTime.now());
+
+                if (pickedDate != null) {
+                  String formattedDate = pickedDate.toString().substring(0, 10);
+                  setState(() {
+                    _birthdayController.text = formattedDate;
+                    filled();
+                  });
+                }
+              },
+              readOnly: true,
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your date of birth';
