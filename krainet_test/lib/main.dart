@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:krainet_test/models/enter/enter_route.dart';
 import 'package:krainet_test/models/splash_page/splash_route.dart';

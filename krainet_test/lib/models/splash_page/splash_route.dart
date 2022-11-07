@@ -9,7 +9,7 @@ class SplashRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
+        child: SizedBox(
           height: 350,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

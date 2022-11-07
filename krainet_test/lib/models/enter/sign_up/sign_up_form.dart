@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:krainet_test/application/sign_up_function.dart';
-import 'package:krainet_test/models/main_page/main_route.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({Key? key}) : super(key: key);
@@ -59,6 +58,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your name';
                 }
+                return null;
               },
               onChanged: (value) => filled()),
           TextFormField(
@@ -94,6 +94,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your date of birth';
                 }
+                return null;
               },
               onChanged: (value) => filled()),
           TextFormField(

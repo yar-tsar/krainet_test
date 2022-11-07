@@ -1,11 +1,12 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 
 class UserData {
   static UserData? isSignedIn;
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   static Future isLoggedIn() async {
-    final user = await FirebaseAuth.instance.currentUser;
+    final user = FirebaseAuth.instance.currentUser;
     if (user?.uid != null) {
       return true;
     } else {
@@ -22,20 +23,38 @@ class UserData {
   ) async {
     if (isFormFilled == true) {
       try {
+        // ignore: unused_local_variable
         final credential = (FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: email, password: password));
       } on FirebaseAuthException catch (e) {
         //TODO: implement error handling
         if (e.code == 'email-already-in-use') {
-          print('The account already exists');
+          log('The account already exists');
         } else {
-          print(e.message);
+          log(e.message.toString());
         }
       }
     }
   }
 
-  Future<void> logOut() async {
+  static Future<void> signIn(
+    String email,
+    String password,
+    bool isFormFilled,
+  ) async {
+    if (isFormFilled == true) {
+      try {
+        // ignore: unused_local_variable
+        final credential = (FirebaseAuth.instance
+            .signInWithEmailAndPassword(email: email, password: password));
+      } on FirebaseAuthException catch (e) {
+        //TODO: implement error handling
+        log(e.message.toString());
+      }
+    }
+  }
+
+  static Future<void> logOut() async {
     await FirebaseAuth.instance.signOut();
   }
 }
