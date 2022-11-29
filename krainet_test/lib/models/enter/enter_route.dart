@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:krainet_test/enter/enter_form.dart';
+import 'package:krainet_test/models/enter/enter_form.dart';
 
 class EnterRoute extends StatelessWidget {
   const EnterRoute({Key? key}) : super(key: key);

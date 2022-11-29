@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "190274162576",
+    "project_id": "krainettest",
+    "storage_bucket": "krainettest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190274162576:android:2a5146d77f64ee5155ad15",
+        "android_client_info": {
+          "package_name": "com.example.krainet_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190274162576-sphg8naslcp0fogvtuvumh269plc8084.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-KJZ8ZUU32RG7p2jP3E1DTqh_ZuaRM6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190274162576-sphg8naslcp0fogvtuvumh269plc8084.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "190274162576-1ieosls6r7l1j80uqljglfmvvbee40kt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.krainetTest"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
