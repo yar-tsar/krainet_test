@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:krainet_test/application/sign_in_function.dart';
 import 'package:krainet_test/models/enter/sign_up/sign_up_route.dart';
 import 'package:krainet_test/models/main_page/main_route.dart';
 
@@ -101,11 +102,23 @@ class _EnterFormState extends State<EnterForm> {
               foregroundColor:
                   _isFormFilled ? Colors.white : const Color(0xFFD9D9D9),
             ),
-            onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const MainRoute(),
-                )),
+            onPressed: () {
+              if (signIn(_emailController.text, _passController.text,
+                      _isFormFilled) !=
+                  false) {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MainRoute(),
+                    ),
+                    (route) => false);
+              } else {
+                SnackBarAction(
+                  label: 'Some error ocured',
+                  onPressed: () {},
+                );
+              }
+            },
             child: const Text('Sign In'),
           ),
           const SizedBox(

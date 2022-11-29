@@ -45,7 +45,7 @@ class PixelsAppState extends State<PixelsApp> {
         builder: (context) {
           isLoggedProcess.then(
             (value) {
-              if (value = true) {
+              if (value) {
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
